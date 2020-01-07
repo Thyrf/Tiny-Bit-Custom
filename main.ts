@@ -357,8 +357,29 @@ namespace Tinybit {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CustomSpeedOffset(speedL: number, speedR: number): void {
     	
-    	offset: number = 40;
-    	scale: number = (255.-offset)/255.;
+        let offset: number = 40;
+        let scale: number = (255.-offset)/255.;
+
+        if(speedL<0 && speedR<0)
+        {
+            Car_back(speedL*scale-offset, speedR*scale-offset);
+        }
+        else if(speedL>0 && speedR>0)
+        {
+            Car_run(speedL*scale+offset, speedR*scale+offset);
+        }
+        else if(speedL<0 && speedR>0)
+        {
+            Car_spinleft(speedL*scale-offset, speedR*scale+offset);
+        }
+        else if(speedL>0 && speedR<0)
+        {
+            Car_spinright(speedL*scale+offset, speedR*scale-offset);
+        }
+        else
+        {
+            Car_stop();
+        }
 
 
     }           
