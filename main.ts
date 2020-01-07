@@ -360,26 +360,7 @@ namespace Tinybit {
     	offset: number = 40;
     	scale: number = (255.-offset)/255.;
 
-        if(speedL<0 && speedR<0)
-        {
-            Car_back(round(speedL*scale)-offset, round(speedR*scale)-offset);
-        }
-        else if(speedL>0 && speedR>0)
-        {
-            Car_run(round(speedL*scale)+offset, round(speedR*scale)+offset);
-        }
-        else if(speedL<0 && speedR>0)
-        {
-            Car_spinleft(round(speedL*scale)-offset, round(speedR*scale)+offset);
-        }
-        else if(speedL>0 && speedR<0)
-        {
-            Car_spinright(round(speedL*scale)+offset, round(speedR*scale)-offset);
-        }
-        else
-        {
-            Car_stop();
-        }
+
     }           
 
     
